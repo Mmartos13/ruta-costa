@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Gymkhana Águilas 🌊</title>
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f4f4f4;
+  padding: 20px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 500px;
+  display: none;
+}
+button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌊 Misión secreta</h1>
+
+<!-- INTRO -->
+<div class="card" id="step0" style="display:block;">
+  <p><b>Bienvenida a la gymkhana improvisada nivel experto 😎</b></p>
+  <p>Si completas todas las pruebas → habrá premio.</p>
+  <button onclick="next(1)">Empezar</button>
+</div>
+
+<!-- PRUEBA 1 -->
+<div class="card" id="step1">
+  <h3>Prueba 1</h3>
+  <p>Encuentra esta cala:</p>
+  <p><b>(foto que tú le enseñes en el móvil)</b></p>
+  <p>Pista: es la más famosa de la zona 😏</p>
+  <button onclick="next(2)">Ya estamos</button>
+</div>
+
+<!-- HISTORIA -->
+<div class="card" id="step2">
+  <h3>Bonus desbloqueado 🧠</h3>
+  <p>
+  La playa de los Cocedores era usada por pescadores como refugio natural.  
+  Sus cuevas protegían del viento y servían como punto de descanso.  
+  Hoy es uno de los rincones más únicos entre Murcia y Almería.
+  </p>
+  <button onclick="next(3)">Siguiente</button>
+</div>
+
+<!-- PRUEBA 2 COORDENADAS -->
+<div class="card" id="step3">
+  <h3>Prueba 2</h3>
+  <p>Encuentra dónde dormimos:</p>
+  <p><b>37° XX' N<br>1° XX' W</b></p>
+  <p>Pista: suma los dígitos del año actual → ese número se repite</p>
+  <p>(ej: 2026 → 2+0+2+6 = 10)</p>
+  <button onclick="next(4)">Resuelto</button>
+</div>
+
+<!-- PRUEBA 3 CIFRADO -->
+<div class="card" id="step4">
+  <h3>Prueba 3</h3>
+  <p>Descifra esto:</p>
+  <p><b>Fdqhjuh, fdod Pxmhuhv</b></p>
+  <p>Pista: retrocede 3 letras (cifrado César)</p>
+  <button onclick="next(5)">Ya lo sé</button>
+</div>
+
+<!-- PRUEBA EXTRA -->
+<div class="card" id="step5">
+  <h3>Reto desbloqueado</h3>
+  <p>Durante 20 minutos:</p>
+  <p><b>una decide TODO y la otra no puede quejarse 😌</b></p>
+  <button onclick="next(6)">Aceptado</button>
+</div>
+
+<!-- PRUEBA FINAL -->
+<div class="card" id="step6">
+  <h3>Última prueba</h3>
+  <p>Pista final:</p>
+  <p>
+  "Donde el mar se calma y el arroz es famoso,  
+  allí termina la misión."
+  </p>
+  <button onclick="next(7)">Vamos</button>
+</div>
+
+<!-- FINAL -->
+<div class="card" id="step7">
+  <h2>🎉 MISIÓN COMPLETADA</h2>
+  <p>Premio desbloqueado:</p>
+  <p><b>Arroz con pulpo 🐙</b></p>
+</div>
+
+<script>
+function next(step){
+  document.querySelectorAll(".card").forEach(e => e.style.display="none");
+  document.getElementById("step"+step).style.display="block";
+}
+</script>
+
+</body>
+</html>
