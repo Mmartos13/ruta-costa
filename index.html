@@ -6,7 +6,212 @@
 <style>
 body {
   font-family: Arial;
+  text-align: center;<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Gymkhana 🌊</title>
+
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #dfe9f3, #ffffff);
   text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+#countdown {
+  font-size: 14px;
+  color: #555;
+}
+
+.progress {
+  width: 80%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 0%;
+  background: #333;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 500px;
+  display: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fade 0.5s;
+}
+
+@keyframes fade {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+button {
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌊 Misión secreta</h1>
+<h2 id="countdown"></h2>
+
+<div class="progress">
+  <div class="progress-bar" id="bar"></div>
+</div>
+
+<!-- INTRO -->
+<div class="card" id="step0" style="display:block;">
+  <p><b>Bienvenida a la gymkhana improvisada nivel experto 😎</b></p>
+  <p>Si completas todas las pruebas → habrá premio.</p>
+  <button onclick="next(1)">Empezar</button>
+</div>
+
+<!-- PRUEBA 1 -->
+<div class="card" id="step1">
+  <h3>Prueba 1</h3>
+  <p>Encuentra esta cala:</p>
+  <img src="cocedores.jpg">
+  <button onclick="next(2)">Estamos aquí</button>
+</div>
+
+<!-- HISTORIA -->
+<div class="card" id="step2">
+  <h3>Dato desbloqueado 🧠</h3>
+  <p>
+  La playa de los Cocedores era usada por pescadores como refugio natural.  
+  Sus cuevas protegían del viento y servían para descansar.
+  </p>
+  <button onclick="next(3)">Seguir</button>
+</div>
+
+<!-- COORDENADAS -->
+<div class="card" id="step3">
+  <h3>Prueba 2</h3>
+  <p>Encuentra dónde dormimos:</p>
+  <p><b>37°10' N<br>1°10' W</b></p>
+  <button onclick="next(4)">Resuelto</button>
+</div>
+
+<!-- CIFRADO -->
+<div class="card" id="step4">
+  <h3>Prueba 3</h3>
+  <p><b>Fdqhjuh, fdod Pxmhuhv</b></p>
+  <p>Pista: retrocede 3 letras</p>
+  <button onclick="next(5)">Descifrado</button>
+</div>
+
+<!-- RETO -->
+<div class="card" id="step5">
+  <h3>Reto</h3>
+  <p>Durante 20 min:</p>
+  <p><b>una manda y la otra no se queja 😌</b></p>
+  <button onclick="next(6)">Ok</button>
+</div>
+
+<!-- FINAL FINDE -->
+<div class="card" id="step6">
+  <h3>Última pista</h3>
+  <p>
+  Donde el mar se calma  
+  y el arroz es famoso 🐙
+  </p>
+  <button onclick="next(7)">Vamos</button>
+</div>
+
+<!-- CONTINÚA -->
+<div class="card" id="step7">
+  <h3>Nivel oculto 👀</h3>
+  <p>La misión continúa hasta el 10 de abril...</p>
+  <button onclick="next(8)">Seguir</button>
+</div>
+
+<!-- POST -->
+<div class="card" id="step8">
+  <p>Reto semanal:</p>
+  <p><b>mandar una foto random al día</b></p>
+  <button onclick="next(9)">Ok</button>
+</div>
+
+<div class="card" id="step9">
+  <p>Encuentra el peor meme posible 😂</p>
+  <button onclick="next(10)">Hecho</button>
+</div>
+
+<div class="card" id="step10">
+  <p>Hacer un plan improvisado antes del 10</p>
+  <button onclick="next(11)">Aceptado</button>
+</div>
+
+<!-- CUMPLE -->
+<div class="card" id="step11">
+  <h2>🎂 Nivel final</h2>
+  <button onclick="next(12)">Abrir regalo</button>
+</div>
+
+<div class="card" id="step12">
+  <h2>🎉 Sorpresa 🎉</h2>
+  <p>Aquí va tu regalo 🎁</p>
+</div>
+
+<script>
+let totalSteps = 12;
+
+function next(step){
+  document.querySelectorAll(".card").forEach(e => e.style.display="none");
+  document.getElementById("step"+step).style.display="block";
+
+  let progress = (step / totalSteps) * 100;
+  document.getElementById("bar").style.width = progress + "%";
+}
+
+// COUNTDOWN
+const targetDate = new Date("April 10, 2026 00:00:00").getTime();
+
+setInterval(function() {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+
+  document.getElementById("countdown").innerHTML =
+  "⏳ " + days + " días y " + hours + "h para el nivel final";
+
+}, 1000);
+</script>
+
+</body>
+</html>
   background: #f4f4f4;
   padding: 20px;
 }
