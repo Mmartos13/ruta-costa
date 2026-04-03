@@ -2,28 +2,18 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Gymkhana Águilas 🌊</title>
-<style>
-body {
-  font-family: Arial;
-  text-align: center;<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
 <title>Gymkhana 🌊</title>
 
 <style>
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #dfe9f3, #ffffff);
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
   text-align: center;
   margin: 0;
   padding: 20px;
 }
 
-h1 {
-  margin-bottom: 5px;
-}
+h1 { margin-bottom: 5px; }
 
 #countdown {
   font-size: 14px;
@@ -43,38 +33,30 @@ h1 {
   width: 0%;
   background: #333;
   border-radius: 10px;
-  transition: 0.5s;
+  transition: width 0.5s;
 }
 
 .card {
   background: white;
-  padding: 25px;
-  border-radius: 15px;
+  padding: 20px;
+  border-radius: 12px;
   margin: 20px auto;
   max-width: 500px;
   display: none;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  animation: fade 0.5s;
-}
-
-@keyframes fade {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1; transform: translateY(0);}
 }
 
 button {
-  padding: 12px 20px;
+  padding: 10px 20px;
   margin-top: 15px;
   border: none;
   background: #333;
   color: white;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 6px;
 }
 
 img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   margin-top: 10px;
 }
 </style>
@@ -93,25 +75,25 @@ img {
 <div class="card" id="step0" style="display:block;">
   <p><b>Bienvenida a la gymkhana improvisada nivel experto 😎</b></p>
   <p>Si completas todas las pruebas → habrá premio.</p>
-  <button onclick="next(1)">Empezar</button>
+  <button onclick="nextStep(1)">Empezar</button>
 </div>
 
 <!-- PRUEBA 1 -->
 <div class="card" id="step1">
   <h3>Prueba 1</h3>
   <p>Encuentra esta cala:</p>
-  <img src="cocedores.jpg">
-  <button onclick="next(2)">Estamos aquí</button>
+  <img src="cocedores.jpg" alt="Cala Cocedores">
+  <button onclick="nextStep(2)">Estamos aquí</button>
 </div>
 
 <!-- HISTORIA -->
 <div class="card" id="step2">
   <h3>Dato desbloqueado 🧠</h3>
   <p>
-  La playa de los Cocedores era usada por pescadores como refugio natural.  
+  La playa de los Cocedores era usada por pescadores como refugio natural.
   Sus cuevas protegían del viento y servían para descansar.
   </p>
-  <button onclick="next(3)">Seguir</button>
+  <button onclick="nextStep(3)">Seguir</button>
 </div>
 
 <!-- COORDENADAS -->
@@ -119,7 +101,7 @@ img {
   <h3>Prueba 2</h3>
   <p>Encuentra dónde dormimos:</p>
   <p><b>37°10' N<br>1°10' W</b></p>
-  <button onclick="next(4)">Resuelto</button>
+  <button onclick="nextStep(4)">Resuelto</button>
 </div>
 
 <!-- CIFRADO -->
@@ -127,55 +109,50 @@ img {
   <h3>Prueba 3</h3>
   <p><b>Fdqhjuh, fdod Pxmhuhv</b></p>
   <p>Pista: retrocede 3 letras</p>
-  <button onclick="next(5)">Descifrado</button>
+  <button onclick="nextStep(5)">Descifrado</button>
 </div>
 
 <!-- RETO -->
 <div class="card" id="step5">
   <h3>Reto</h3>
-  <p>Durante 20 min:</p>
-  <p><b>una manda y la otra no se queja 😌</b></p>
-  <button onclick="next(6)">Ok</button>
+  <p>Durante 20 min: una manda y la otra no se queja 😌</p>
+  <button onclick="nextStep(6)">Ok</button>
 </div>
 
 <!-- FINAL FINDE -->
 <div class="card" id="step6">
   <h3>Última pista</h3>
-  <p>
-  Donde el mar se calma  
-  y el arroz es famoso 🐙
-  </p>
-  <button onclick="next(7)">Vamos</button>
+  <p>Donde el mar se calma y el arroz es famoso 🐙</p>
+  <button onclick="nextStep(7)">Vamos</button>
 </div>
 
 <!-- CONTINÚA -->
 <div class="card" id="step7">
   <h3>Nivel oculto 👀</h3>
   <p>La misión continúa hasta el 10 de abril...</p>
-  <button onclick="next(8)">Seguir</button>
+  <button onclick="nextStep(8)">Seguir</button>
 </div>
 
 <!-- POST -->
 <div class="card" id="step8">
-  <p>Reto semanal:</p>
-  <p><b>mandar una foto random al día</b></p>
-  <button onclick="next(9)">Ok</button>
+  <p>Reto semanal: mandar una foto random al día</p>
+  <button onclick="nextStep(9)">Ok</button>
 </div>
 
 <div class="card" id="step9">
   <p>Encuentra el peor meme posible 😂</p>
-  <button onclick="next(10)">Hecho</button>
+  <button onclick="nextStep(10)">Hecho</button>
 </div>
 
 <div class="card" id="step10">
   <p>Hacer un plan improvisado antes del 10</p>
-  <button onclick="next(11)">Aceptado</button>
+  <button onclick="nextStep(11)">Aceptado</button>
 </div>
 
-<!-- CUMPLE -->
+<!-- FINAL -->
 <div class="card" id="step11">
   <h2>🎂 Nivel final</h2>
-  <button onclick="next(12)">Abrir regalo</button>
+  <button onclick="nextStep(12)">Abrir regalo</button>
 </div>
 
 <div class="card" id="step12">
@@ -186,16 +163,16 @@ img {
 <script>
 let totalSteps = 12;
 
-function next(step){
-  document.querySelectorAll(".card").forEach(e => e.style.display="none");
-  document.getElementById("step"+step).style.display="block";
+function nextStep(step){
+  document.querySelectorAll(".card").forEach(el => el.style.display = "none");
+  document.getElementById("step" + step).style.display = "block";
 
   let progress = (step / totalSteps) * 100;
   document.getElementById("bar").style.width = progress + "%";
 }
 
 // COUNTDOWN
-const targetDate = new Date("April 10, 2026 00:00:00").getTime();
+const targetDate = new Date("2026-04-10T00:00:00").getTime();
 
 setInterval(function() {
   const now = new Date().getTime();
@@ -204,117 +181,13 @@ setInterval(function() {
   const days = Math.floor(distance / (1000*60*60*24));
   const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
 
-  document.getElementById("countdown").innerHTML =
-  "⏳ " + days + " días y " + hours + "h para el nivel final";
-
+  if(distance > 0){
+    document.getElementById("countdown").innerHTML =
+      "⏳ " + days + " días y " + hours + "h para el nivel final";
+  } else {
+    document.getElementById("countdown").innerHTML = "🎉 ES HOY 🎉";
+  }
 }, 1000);
-</script>
-
-</body>
-</html>
-  background: #f4f4f4;
-  padding: 20px;
-}
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px auto;
-  max-width: 500px;
-  display: none;
-}
-button {
-  padding: 10px 20px;
-  margin-top: 15px;
-  border: none;
-  background: #333;
-  color: white;
-  border-radius: 5px;
-}
-</style>
-</head>
-
-<body>
-
-<h1>🌊 Misión secreta</h1>
-
-<!-- INTRO -->
-<div class="card" id="step0" style="display:block;">
-  <p><b>Bienvenida a la gymkhana improvisada nivel experto 😎</b></p>
-  <p>Si completas todas las pruebas → habrá premio.</p>
-  <button onclick="next(1)">Empezar</button>
-</div>
-
-<!-- PRUEBA 1 -->
-<div class="card" id="step1">
-  <h3>Prueba 1</h3>
-  <p>Encuentra esta cala:</p>
-  <p><b>(foto que tú le enseñes en el móvil)</b></p>
-  <p>Pista: es la más famosa de la zona 😏</p>
-  <button onclick="next(2)">Ya estamos</button>
-</div>
-
-<!-- HISTORIA -->
-<div class="card" id="step2">
-  <h3>Bonus desbloqueado 🧠</h3>
-  <p>
-  La playa de los Cocedores era usada por pescadores como refugio natural.  
-  Sus cuevas protegían del viento y servían como punto de descanso.  
-  Hoy es uno de los rincones más únicos entre Murcia y Almería.
-  </p>
-  <button onclick="next(3)">Siguiente</button>
-</div>
-
-<!-- PRUEBA 2 COORDENADAS -->
-<div class="card" id="step3">
-  <h3>Prueba 2</h3>
-  <p>Encuentra dónde dormimos:</p>
-  <p><b>37° XX' N<br>1° XX' W</b></p>
-  <p>Pista: suma los dígitos del año actual → ese número se repite</p>
-  <p>(ej: 2026 → 2+0+2+6 = 10)</p>
-  <button onclick="next(4)">Resuelto</button>
-</div>
-
-<!-- PRUEBA 3 CIFRADO -->
-<div class="card" id="step4">
-  <h3>Prueba 3</h3>
-  <p>Descifra esto:</p>
-  <p><b>Fdqhjuh, fdod Pxmhuhv</b></p>
-  <p>Pista: retrocede 3 letras (cifrado César)</p>
-  <button onclick="next(5)">Ya lo sé</button>
-</div>
-
-<!-- PRUEBA EXTRA -->
-<div class="card" id="step5">
-  <h3>Reto desbloqueado</h3>
-  <p>Durante 20 minutos:</p>
-  <p><b>una decide TODO y la otra no puede quejarse 😌</b></p>
-  <button onclick="next(6)">Aceptado</button>
-</div>
-
-<!-- PRUEBA FINAL -->
-<div class="card" id="step6">
-  <h3>Última prueba</h3>
-  <p>Pista final:</p>
-  <p>
-  "Donde el mar se calma y el arroz es famoso,  
-  allí termina la misión."
-  </p>
-  <button onclick="next(7)">Vamos</button>
-</div>
-
-<!-- FINAL -->
-<div class="card" id="step7">
-  <h2>🎉 MISIÓN COMPLETADA</h2>
-  <p>Premio desbloqueado:</p>
-  <p><b>Arroz con pulpo 🐙</b></p>
-</div>
-
-<script>
-function next(step){
-  document.querySelectorAll(".card").forEach(e => e.style.display="none");
-  document.getElementById("step"+step).style.display="block";
-}
 </script>
 
 </body>
