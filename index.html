@@ -100,8 +100,18 @@ img {
 <div class="card" id="step3">
   <h3>Prueba 2</h3>
   <p>Encuentra dónde dormimos:</p>
-  <p><b>37°10' N<br>1°10' W</b></p>
-  <button onclick="nextStep(4)">Resuelto</button>
+
+  <p>
+  “Nada está oculto si sabes cómo leerlo…”<br><br>
+  <b>MzcuNDgwMiwgLTEuNTU0NA==</b>
+  </p>
+
+  <p>Pista: copia esto en internet 😉</p>
+
+  <input id="coords" placeholder="Ej: 00.0000, 0.0000">
+  <button onclick="checkCoords()">Validar</button>
+
+  <p id="result"></p>
 </div>
 
 <!-- CIFRADO -->
@@ -162,7 +172,18 @@ img {
 
 <script>
 let totalSteps = 12;
+function checkCoords(){
+  let val = document.getElementById("coords").value.trim();
 
+  if(val.includes("37.4802") && val.includes("-1.5544")){
+    document.getElementById("result").innerHTML = 
+      "✅ Correcto<br><br><a href='https://www.google.com/maps?q=37.4802,-1.5544' target='_blank'>📍 Ver ubicación</a>";
+
+    setTimeout(() => nextStep(4), 2000);
+  } else {
+    document.getElementById("result").innerHTML = "❌ Incorrecto, prueba otra vez";
+  }
+}
 function nextStep(step){
   document.querySelectorAll(".card").forEach(el => el.style.display = "none");
   document.getElementById("step" + step).style.display = "block";
